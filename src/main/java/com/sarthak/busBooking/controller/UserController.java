@@ -5,9 +5,13 @@ import com.sarthak.busBooking.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
+@RestController
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -15,7 +19,7 @@ public class UserController {
 
     @PostMapping("/login")
     public Object loginUser(@RequestBody Map<String, String> user) {
-        return service.login(Integer.parseInt(user.get("id")), user.get("password"));
+        return service.login(user.get("email"), user.get("password"));
     }
 
     @PostMapping("/signup")

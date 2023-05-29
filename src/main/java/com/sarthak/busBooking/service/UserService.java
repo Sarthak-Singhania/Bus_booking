@@ -14,8 +14,8 @@ public class UserService {
     @Autowired
     private UserRepository repository;
 
-    public Object login(int userId, String password) {
-        User user = repository.findById(userId).orElse(null);
+    public Object login(String email, String password) {
+        User user = repository.findByEmail(email).orElse(null);
         if (user == null) {
             return "User not found";
         }
