@@ -13,6 +13,7 @@ public class DriverService {
 
     @Autowired
     private DriverRepository driverRepository;
+    @Autowired
     private BusRepository busRepository;
 
     public Driver getDriver(int id) {
