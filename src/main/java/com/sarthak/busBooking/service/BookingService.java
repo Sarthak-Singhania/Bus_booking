@@ -2,9 +2,7 @@ package com.sarthak.busBooking.service;
 
 
 import com.sarthak.busBooking.entity.*;
-import com.sarthak.busBooking.repository.BookingRepository;
-import com.sarthak.busBooking.repository.BusRepository;
-import com.sarthak.busBooking.repository.SeatRepository;
+import com.sarthak.busBooking.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +19,10 @@ public class BookingService {
     private SeatRepository seatRepository;
     @Autowired
     private BusRepository busRepository;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private ScheduleRepository scheduleRepository;
 
     public Optional<Booking> getBookingById(int booking_id) {
         return bookingRepository.findById(booking_id);
@@ -30,7 +32,10 @@ public class BookingService {
         return bookingRepository.getBookingsByUser(user);
     }
 
-    public String makeBooking(User user, Schedule schedule, Seat seat){
+    public Object makeBooking(int userId, int scheduleId, int seatId){
+        Schedule schedule = scheduleRepository.getReferenceById(scheduleId);
+        Seat seat = seatRepository.getReferenceById(seatId);
+        User user = userRepository.getReferenceById(userId);
         if (schedule.getBus().getNoOfSeats() == 0){
             return "All seats booked";
         }
@@ -45,6 +50,6 @@ public class BookingService {
         seatRepository.save(seat);
         bus.setNoOfSeats(bus.getNoOfSeats()-1);
         busRepository.save(bus);
-        return booking.toString();
+        return booking;
     }
 }
