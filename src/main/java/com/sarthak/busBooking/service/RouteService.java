@@ -18,16 +18,16 @@ public class RouteService {
         return repository.findBySourceAndDestination(source, destination);
     }
 
-    public List<String> getSourceList(){
+    public List<String> getSourceList() {
         return repository.findAllSource();
     }
 
-    public List<String> getDestinationList(){
+    public List<String> getDestinationList() {
         return repository.findAllDestination();
     }
 
-    public Route createRoute(String source, String destination, double distance){
-        Route route=new Route();
+    public Route createRoute(String source, String destination, double distance) {
+        Route route = new Route();
         route.setDestination(destination);
         route.setDistance(distance);
         route.setSource(source);

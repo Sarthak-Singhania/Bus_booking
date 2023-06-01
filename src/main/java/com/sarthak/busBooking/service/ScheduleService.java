@@ -34,10 +34,10 @@ public class ScheduleService {
         return schedules;
     }
 
-    public Schedule createSchedule(int routeId, int busId, LocalTime start, LocalTime end, LocalDate date){
-        Bus bus=busRepository.getReferenceById(busId);
-        Route route=routeRepository.getReferenceById(routeId);
-        Schedule schedule=new Schedule();
+    public Schedule createSchedule(int routeId, int busId, LocalTime start, LocalTime end, LocalDate date) {
+        Bus bus = busRepository.getReferenceById(busId);
+        Route route = routeRepository.getReferenceById(routeId);
+        Schedule schedule = new Schedule();
         schedule.setBus(bus);
         schedule.setRoute(route);
         schedule.setStartTime(start);

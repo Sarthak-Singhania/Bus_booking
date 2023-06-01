@@ -27,9 +27,9 @@ public class DriverService {
         return driverRepository.findByBus(bus);
     }
 
-    public Driver addDriver(String name, String license, String dateOfBirth, String address, String dateOfJoining, int busId){
-        Bus bus=busRepository.getReferenceById(busId);
-        Driver driver=new Driver();
+    public Driver addDriver(String name, String license, String dateOfBirth, String address, String dateOfJoining, int busId) {
+        Bus bus = busRepository.getReferenceById(busId);
+        Driver driver = new Driver();
         driver.setBus(bus);
         driver.setDriversLicense(license);
         driver.setName(name);

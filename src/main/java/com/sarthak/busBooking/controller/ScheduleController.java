@@ -19,7 +19,7 @@ public class ScheduleController {
     private ScheduleService scheduleService;
 
     @PostMapping("/create")
-    public Schedule createSchedule(@RequestBody Map<String, String> scheduleInfo){
+    public Schedule createSchedule(@RequestBody Map<String, String> scheduleInfo) {
         return scheduleService.createSchedule(
                 Integer.parseInt(scheduleInfo.get("routeId")),
                 Integer.parseInt(scheduleInfo.get("busId")),
@@ -30,7 +30,7 @@ public class ScheduleController {
     }
 
     @GetMapping("/getSchedule")
-    public List<Schedule> listSchedules(@RequestParam("source") String source, @RequestParam("destination") String destination, @RequestParam("time") String time, @RequestParam("date") String date){
+    public List<Schedule> listSchedules(@RequestParam("source") String source, @RequestParam("destination") String destination, @RequestParam("time") String time, @RequestParam("date") String date) {
         return scheduleService.getSchedulesByRoute(source, destination, LocalDate.parse(date));
     }
 }

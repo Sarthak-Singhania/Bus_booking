@@ -19,7 +19,7 @@ public class SeatController {
     private SeatService seatService;
 
     @GetMapping("/getSeats")
-    public List<Seat> listSeats(@RequestParam("busId") int busId){
+    public List<Seat> listSeats(@RequestParam("busId") int busId) {
         return seatService.listSeatsByBus(busId);
     }
 }

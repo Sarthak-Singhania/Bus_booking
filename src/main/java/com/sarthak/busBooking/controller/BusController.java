@@ -16,12 +16,12 @@ public class BusController {
     private BusService busService;
 
     @PostMapping("/addBus")
-    public Bus addBus(@RequestBody Map<String, String> busInfo){
-        return busService.createBus(busInfo.get("name"), busInfo.get("owner"), Integer.parseInt(busInfo.get("noOfSeats")),busInfo.get("license"));
+    public Bus addBus(@RequestBody Map<String, String> busInfo) {
+        return busService.createBus(busInfo.get("name"), busInfo.get("owner"), Integer.parseInt(busInfo.get("noOfSeats")), busInfo.get("license"));
     }
 
     @GetMapping("/getBus")
-    public Bus getBus(@RequestParam("id") int id){
+    public Bus getBus(@RequestParam("id") int id) {
         return busService.findBus(id);
     }
 

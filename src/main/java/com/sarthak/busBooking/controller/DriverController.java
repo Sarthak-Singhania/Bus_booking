@@ -20,8 +20,14 @@ public class DriverController {
     }
 
     @PostMapping("/registerDriver")
-    public Driver addDriver(@RequestBody Map<String, String> driverInfo){
-        return service.addDriver(driverInfo.get("name"), driverInfo.get("license"),driverInfo.get("DOB"),driverInfo.get("address"),driverInfo.get("DOJ"), Integer.parseInt(driverInfo.get("busId")));
+    public Driver addDriver(@RequestBody Map<String, String> driverInfo) {
+        return service.addDriver(
+                driverInfo.get("name"),
+                driverInfo.get("license"),
+                driverInfo.get("DOB"),
+                driverInfo.get("address"),
+                driverInfo.get("DOJ"),
+                Integer.parseInt(driverInfo.get("busId")));
     }
 
     @PostMapping("/changeDriver")
@@ -30,7 +36,7 @@ public class DriverController {
     }
 
     @GetMapping("/findDriverByBus/{busId}")
-    public Driver findDriverByBusId(@PathVariable int busId){
+    public Driver findDriverByBusId(@PathVariable int busId) {
         return service.getDriverByBus(busId);
     }
 }

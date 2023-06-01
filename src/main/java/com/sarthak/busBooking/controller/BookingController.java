@@ -1,9 +1,5 @@
 package com.sarthak.busBooking.controller;
 
-import com.sarthak.busBooking.entity.Booking;
-import com.sarthak.busBooking.entity.Schedule;
-import com.sarthak.busBooking.entity.Seat;
-import com.sarthak.busBooking.entity.User;
 import com.sarthak.busBooking.service.BookingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,7 +18,7 @@ public class BookingController {
     private BookingService bookingService;
 
     @PostMapping("/book")
-    public Object book(@RequestBody Map<String, Integer> bookingInfo){
+    public Object book(@RequestBody Map<String, Integer> bookingInfo) {
         return bookingService.makeBooking(bookingInfo.get("user"), bookingInfo.get("schedule"), bookingInfo.get("seat"));
     }
 }

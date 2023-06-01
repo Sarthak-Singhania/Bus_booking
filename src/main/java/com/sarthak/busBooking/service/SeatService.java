@@ -17,8 +17,8 @@ public class SeatService {
     @Autowired
     private BusRepository busRepository;
 
-    public List<Seat> listSeatsByBus(int busId){
-        Bus bus=busRepository.findById(busId).orElse(null);
+    public List<Seat> listSeatsByBus(int busId) {
+        Bus bus = busRepository.findById(busId).orElse(null);
         return seatRepository.findByBus(bus);
     }
 }
