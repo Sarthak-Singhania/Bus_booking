@@ -23,7 +23,4 @@ public class Bus {
     private String owner;
     private int noOfSeats;
     private String licensePlate;
-    @OneToMany
-    @JoinColumn(name = "bus_id", referencedColumnName = "id")
-    private List<Seat> seats;
 }

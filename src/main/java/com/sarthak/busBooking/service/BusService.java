@@ -30,6 +30,10 @@ private int id;
     private List<Seat> seats;
  */
 
+    public Bus findBus(int busId){
+        return busRepository.getReferenceById(busId);
+    }
+
     public Bus createBus(String name, String owner, int noOfSeats, String license){
         List<Seat> seats= new ArrayList<>();
         Bus bus=new Bus();

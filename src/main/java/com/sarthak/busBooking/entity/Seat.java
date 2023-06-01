@@ -17,6 +17,7 @@ public class Seat {
     private int id;
 
     @ManyToOne
+    @JoinColumn(name = "bus_id", referencedColumnName = "id")
     private Bus bus;
 
     @Column(columnDefinition = "BIT")

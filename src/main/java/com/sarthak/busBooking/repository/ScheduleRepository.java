@@ -10,5 +10,5 @@ import java.util.List;
 
 public interface ScheduleRepository extends JpaRepository<Schedule, Integer> {
 
-    List<Schedule> findByRouteAndTravelDateAndStartTime(Route route, LocalDate travelDate, LocalTime startTime);
+    List<Schedule> findByRouteAndTravelDate(Route route, LocalDate travelDate);
 }

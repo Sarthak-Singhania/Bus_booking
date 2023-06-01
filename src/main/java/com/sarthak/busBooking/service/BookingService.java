@@ -4,8 +4,11 @@ package com.sarthak.busBooking.service;
 import com.sarthak.busBooking.entity.*;
 import com.sarthak.busBooking.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.persistence.LockModeType;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;

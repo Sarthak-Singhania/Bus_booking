@@ -6,6 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,9 +20,9 @@ public class Driver {
     private int id;
     private String name;
     private String driversLicense;
-    private String DOB;
+    private LocalDate DOB;
     private String Address;
-    private String DOJ;
+    private LocalDate DOJ;
     @OneToOne
     @JoinColumn(name = "busId", referencedColumnName = "id")
     private Bus bus;

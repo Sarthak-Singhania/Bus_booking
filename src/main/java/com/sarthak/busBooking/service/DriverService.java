@@ -8,6 +8,8 @@ import com.sarthak.busBooking.repository.DriverRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+
 @Service
 public class DriverService {
 
@@ -32,8 +34,8 @@ public class DriverService {
         driver.setDriversLicense(license);
         driver.setName(name);
         driver.setAddress(address);
-        driver.setDOB(dateOfBirth);
-        driver.setDOJ(dateOfJoining);
+        driver.setDOB(LocalDate.parse(dateOfBirth));
+        driver.setDOJ(LocalDate.parse(dateOfJoining));
         driverRepository.save(driver);
         return driver;
     }
