@@ -1,6 +1,7 @@
 package com.sarthak.busBooking.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,12 +21,14 @@ public class Schedule {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "bus_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Bus bus;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "route_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Route route;
     private LocalTime startTime;
     private LocalTime endTime;
