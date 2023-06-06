@@ -15,12 +15,12 @@ public class BusController {
     @Autowired
     private BusService busService;
 
-    @PostMapping("/addBus")
+    @PostMapping
     public Bus addBus(@RequestBody Map<String, String> busInfo) {
         return busService.createBus(busInfo.get("name"), busInfo.get("owner"), Integer.parseInt(busInfo.get("noOfSeats")), busInfo.get("license"));
     }
 
-    @GetMapping("/getBus")
+    @GetMapping
     public Bus getBus(@RequestParam("id") int id) {
         return busService.findBus(id);
     }

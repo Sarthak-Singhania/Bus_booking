@@ -21,7 +21,7 @@ public class Schedule {
     @GeneratedValue
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "bus_id")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Bus bus;

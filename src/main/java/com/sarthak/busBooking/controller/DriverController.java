@@ -14,12 +14,12 @@ public class DriverController {
     @Autowired
     private DriverService service;
 
-    @GetMapping("/findDriver/{driverId}")
+    @GetMapping
     public Driver findDriver(@PathVariable int driverId) {
         return service.getDriver(driverId);
     }
 
-    @PostMapping("/registerDriver")
+    @PostMapping
     public Driver addDriver(@RequestBody Map<String, String> driverInfo) {
         return service.addDriver(
                 driverInfo.get("name"),
@@ -30,13 +30,8 @@ public class DriverController {
                 Integer.parseInt(driverInfo.get("busId")));
     }
 
-    @PostMapping("/changeDriver")
+    @PutMapping
     public String changeDriver(@RequestBody Map<String, Integer> details) {
         return service.changeBus(details.get("driverId"), details.get("busId"));
-    }
-
-    @GetMapping("/findDriverByBus/{busId}")
-    public Driver findDriverByBusId(@PathVariable int busId) {
-        return service.getDriverByBus(busId);
     }
 }

@@ -18,7 +18,7 @@ public class SeatController {
     @Autowired
     private SeatService seatService;
 
-    @GetMapping("/getSeats")
+    @GetMapping
     public List<Seat> listSeats(@RequestParam("busId") int busId) {
         return seatService.listSeatsByBus(busId);
     }

@@ -18,7 +18,7 @@ public class ScheduleController {
     @Autowired
     private ScheduleService scheduleService;
 
-    @PostMapping("/create")
+    @PostMapping
     public Schedule createSchedule(@RequestBody Map<String, String> scheduleInfo) {
         return scheduleService.createSchedule(
                 Integer.parseInt(scheduleInfo.get("routeId")),
@@ -29,7 +29,7 @@ public class ScheduleController {
         );
     }
 
-    @GetMapping("/getSchedule")
+    @GetMapping
     public List<Schedule> listSchedules(@RequestParam("source") String source, @RequestParam("destination") String destination, @RequestParam("time") String time, @RequestParam("date") String date) {
         return scheduleService.getSchedulesByRoute(source, destination, LocalDate.parse(date));
     }

@@ -5,6 +5,7 @@ import com.sarthak.busBooking.entity.*;
 import com.sarthak.busBooking.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Timestamp;
 import java.util.List;
@@ -32,7 +33,8 @@ public class BookingService {
         return bookingRepository.getBookingsByUser(user);
     }
 
-    public Object makeBooking(int userId, int scheduleId, int seatId) {
+    @Transactional
+    public Object makeBooking(int userId, int scheduleId, int seatId) throws Exception{
         Schedule schedule = scheduleRepository.getReferenceById(scheduleId);
         Seat seat = seatRepository.getReferenceById(seatId);
         User user = userRepository.getReferenceById(userId);
@@ -45,6 +47,7 @@ public class BookingService {
         booking.setBookingTime(timestamp);
         booking.setSchedule(schedule);
         booking.setUser(user);
+        booking.setSeat(seat);
         bookingRepository.save(booking);
         seat.setBooked(true);
         seatRepository.save(seat);

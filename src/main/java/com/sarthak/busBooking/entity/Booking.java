@@ -32,4 +32,9 @@ public class Booking {
 
     @Column(columnDefinition = "DATETIME")
     private Timestamp bookingTime;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "bus_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    private Seat seat;
 }

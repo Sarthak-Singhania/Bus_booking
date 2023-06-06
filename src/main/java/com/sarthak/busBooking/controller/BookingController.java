@@ -17,8 +17,8 @@ public class BookingController {
     @Autowired
     private BookingService bookingService;
 
-    @PostMapping("/book")
-    public Object book(@RequestBody Map<String, Integer> bookingInfo) {
+    @PostMapping
+    public Object book(@RequestBody Map<String, Integer> bookingInfo) throws Exception {
         return bookingService.makeBooking(bookingInfo.get("user"), bookingInfo.get("schedule"), bookingInfo.get("seat"));
     }
 }

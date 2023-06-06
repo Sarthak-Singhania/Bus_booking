@@ -25,7 +25,7 @@ public class RouteController {
         return routeService.getDestinationList();
     }
 
-    @PostMapping("/create")
+    @PostMapping
     public Route createRoute(@RequestBody Map<String, String> routeInfo) {
         return routeService.createRoute(routeInfo.get("source"), routeInfo.get("destination"), Double.parseDouble(routeInfo.get("distance")));
     }
