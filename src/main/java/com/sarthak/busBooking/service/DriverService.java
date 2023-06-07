@@ -42,7 +42,7 @@ public class DriverService {
 
     public String changeBus(int driverId, int busId) {
         Driver driver = driverRepository.findById(driverId).orElse(null);
-        if (driver!=null) {
+        if (driver != null) {
             driver.setBus(busRepository.findById(busId).orElse(null));
             return "Driver set";
         }
